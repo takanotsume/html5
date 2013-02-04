@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Explorating HTML5's localStorage</title>
+ 
+	<script type="text/javascript">
+ 
+		// Right now, localStorage is empty. We're going to be
+		// testing the features of the storage interface.
+ 
+ 
+		// While the localStorage object does have accessor and
+		// mutator methods, it can also be used as an associative
+		// array. This can be helpful when checking to see if a
+		// value actually exists.
+		console.log(
+			"hella in localStorage ---",
+			("hella" in localStorage)
+		);
+ 
+		// Try to access the same value using the getItem() method.
+		console.log(
+			"localStorage.getItem( 'hella' ) ---",
+			localStorage.getItem( "hella" )
+		);
+ 
+ 
+		// -------------------------------------------------- //
+		// -------------------------------------------------- //
+ 
+ 
+		// Now that we've tried to check for and access an undefined
+		// value, let's go ahead and set a value. First, we'll use
+		// mutator method, setItem().
+		localStorage.setItem( "hella", "sexy" );
+ 
+		// And, we'll use the associate array approach.
+		localStorage[ "wicked" ] = "awesome";
+ 
+ 
+		// -------------------------------------------------- //
+		// -------------------------------------------------- //
+ 
+ 
+		// Now that we've set a value, let's again use two approaches
+		// to determining if a value has been set.
+		console.log(
+			"hella in localStorage ---",
+			("hella" in localStorage)
+		);
+ 
+		// Try to access the same value using the getItem() method.
+		console.log(
+			"localStorage.getItem( 'wicked' ) ---",
+			localStorage.getItem( "wicked" )
+		);
+ 
+ 
+		// -------------------------------------------------- //
+		// -------------------------------------------------- //
+ 
+ 
+		// Now that we see how to put in values and how to receive
+		// them, let's take a look at the type of data that we
+		// actually get to work with. The localStorage can only
+		// store string values; so, what happens when we pass it
+		// something that is not a string.
+ 
+		// Create an object.
+		var myObject = {};
+ 
+		// Store the object.
+		localStorage.setItem( "myObject", myObject );
+ 
+		// Now, get the value and test the data type.
+		console.log(
+			"typeof( myObject ) ---",
+			typeof( localStorage.getItem( "myObject" ) )
+		);
+ 
+ 
+		// -------------------------------------------------- //
+		// -------------------------------------------------- //
+ 
+ 
+		// As a final test, let's delete the values in the
+		// localStorage object. First, we can use the removeItem()
+		// mutator.
+		localStorage.removeItem( "hella" );
+ 
+		// Then, we can also use the "delete" operator.
+		delete localStorage[ "wicked" ];
+ 
+ 
+		// Now, let's check again to see if these items exist.
+		console.log(
+			"hella in localStorage ---",
+			("hella" in localStorage)
+		);
+ 
+		console.log(
+			"wicked in localStorage ---",
+			("wicked" in localStorage)
+		);
+ 
+ 
+		// -------------------------------------------------- //
+		// -------------------------------------------------- //
+ 
+ 
+		// Clear out any local storage items that have
+		// been populated from our experimenting.
+		localStorage.clear();
+ 
+	</script>
+</head>
+<body>
+ 
+	<h1>
+		Exploring HTML5's localStorage
+	</h1>
+ 
+</body>
+</html>
